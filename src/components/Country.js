@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { useGlobalContext } from '../context'
 import SearchForm from './SearchForm'
+import SingleCountry from './SingleCountry'
 
 const Country = () => {
   const { loading, countries } = useGlobalContext()
@@ -9,6 +10,7 @@ const Country = () => {
   return (
     <Wrapper>
       <SearchForm />
+      <SingleCountry />
       <div className='main'>
         <table>
           <tr>

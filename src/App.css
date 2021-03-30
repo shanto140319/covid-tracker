@@ -139,10 +139,13 @@ p {
 }
 
 .loading {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* transform: translate(-50%, -50%); */
   width: 6rem;
   height: 6rem;
   margin: 0 auto;
-  margin-top: 12rem;
   border-radius: 50%;
   border: 3px solid #ccc;
   border-top-color: var(--clr-primary-5);
