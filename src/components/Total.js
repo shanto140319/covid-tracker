@@ -6,7 +6,7 @@ import SingleTotal from './SingleTotal'
 const Total = () => {
   const { global, loading } = useGlobalContext()
   if (loading) {
-    return <div class='loading'></div>
+    return <div className='loading'></div>
   }
   const {
     updated,

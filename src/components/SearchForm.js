@@ -3,11 +3,7 @@ import styled from 'styled-components'
 import { useGlobalContext } from '../context'
 
 const SearchForm = () => {
-  const { query, setQuery } = useGlobalContext()
-  console.log(query)
-  // const handleSubmit = (e) => {
-  //   e.preventDefault
-  // }
+  const { search, setSearch } = useGlobalContext()
   return (
     <Wrapper>
       <form onSubmit={(e) => e.preventDafault()}>
@@ -15,8 +11,8 @@ const SearchForm = () => {
         <input
           type='text'
           className='form-input'
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
         />
       </form>
     </Wrapper>

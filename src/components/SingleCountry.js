@@ -35,7 +35,7 @@ const SingleCountry = () => {
   )
 }
 const Wrapper = styled.article`
-  margin: 2rem auto;
+  margin: 2rem auto 5rem auto;
 
   .section {
     margin: 1rem auto;

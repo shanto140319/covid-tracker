@@ -8,9 +8,28 @@ const AppProvider = ({ children }) => {
   const [countries, setCountries] = useState([])
   const [singleCountry, setSingleCountry] = useState('')
   const [loading, setLoading] = useState(false)
-  const [query, setQuery] = useState('bangladesh')
+  const [query, setQuery] = useState('Afghanistan')
+  const [search, setSearch] = useState('')
 
-  // const api = 'https://api.covid19api.com/summary'
+  //building category
+  const allCategories = [
+    'all',
+    ...new Set(countries.map((item) => item.continent)),
+  ]
+
+  //creating new country varibale storing countries
+  const [allCountries, setAllCountries] = useState([])
+
+  //filter by continent
+  const filterItem = (continent) => {
+    if (continent === 'all') {
+      setAllCountries(countries)
+      return
+    }
+    let newItems = countries.filter((item) => item.continent === continent)
+    setAllCountries(newItems)
+  }
+
   const api = 'https://corona.lmao.ninja/v2/all'
   const country = 'https://corona.lmao.ninja/v2/countries'
 
@@ -20,19 +39,31 @@ const AppProvider = ({ children }) => {
     const data = await response.json()
     setLoading(false)
     setGlobal(data)
-    // setCountries(data.Countries)
   }
   const fetchCountry = async (url) => {
     const response = await fetch(url)
     const data = await response.json()
     setCountries(data)
-    // setCountries(data.Countries)
+    setAllCountries(data)
   }
+
   const fetchSingleCountry = async (url) => {
     const response = await fetch(url)
     const data = await response.json()
     setSingleCountry(data)
   }
+
+  useEffect(() => {
+    if (search.length > 0) {
+      let searches = countries.filter((item) =>
+        item.country.toLowerCase().startsWith(search)
+      )
+      setAllCountries(searches)
+    } else {
+      setAllCountries(countries)
+    }
+  }, [search])
+
   useEffect(() => {
     fetchSingleCountry(`${country}/${query}`)
   }, [query])
@@ -46,7 +77,19 @@ const AppProvider = ({ children }) => {
   }, [])
   return (
     <AppContext.Provider
-      value={{ global, countries, loading, setQuery, query, singleCountry }}
+      value={{
+        global,
+        countries,
+        allCountries,
+        loading,
+        setQuery,
+        query,
+        singleCountry,
+        search,
+        setSearch,
+        filterItem,
+        allCategories,
+      }}
     >
       {children}
     </AppContext.Provider>
