@@ -34,8 +34,17 @@ const Wrapper = styled.div`
     margin-bottom: 2rem;
   }
   .filter-btn {
-    padding: 0.5rem 2rem;
+    padding: 0.4rem 1rem;
     cursor: pointer;
+    background: var(--clr-grey-4);
+    border: none;
+    border-radius: 3px;
+    color: #fff;
+    transition: 0.3s;
+    letter-spacing: 2px;
+  }
+  .filter-btn:hover {
+    background: var(--clr-grey-5);
   }
 `
 export default Continent

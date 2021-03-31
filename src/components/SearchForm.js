@@ -7,7 +7,7 @@ const SearchForm = () => {
   return (
     <Wrapper>
       <form onSubmit={(e) => e.preventDafault()}>
-        <h2>search Countries</h2>
+        <h4>search Countries</h4>
         <input
           type='text'
           className='form-input'

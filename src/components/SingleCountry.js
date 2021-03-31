@@ -33,6 +33,10 @@ const SingleCountry = () => {
       </section>
     </Wrapper>
   )
+  // 01313032685
+  // ma azad
+  // titumia anamul
+  // faizul islamm
 }
 const Wrapper = styled.article`
   margin: 2rem auto 5rem auto;

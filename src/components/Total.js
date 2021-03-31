@@ -24,9 +24,8 @@ const Total = () => {
   return (
     <Wrapper>
       <div className='heading'>
-        <h3>live status</h3>
+        <h3>World Wide status</h3>
         <h4>Updated on : {date.toString()}</h4>
-        <h3>Total</h3>
       </div>
       <section className='section'>
         <SingleTotal title='Total Tests' number={tests} />
@@ -54,6 +53,9 @@ const Wrapper = styled.main`
   display: grid;
   place-items: center;
   justify-items: center;
+  .heading h3 {
+    margin: 1rem 0;
+  }
   .section {
     margin: 1rem auto;
     display: grid;
