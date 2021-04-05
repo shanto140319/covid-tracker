@@ -55,10 +55,8 @@ const AppProvider = ({ children }) => {
 
   useEffect(() => {
     if (search.length > 0) {
-      let searches = countries.filter(
-        (item) =>
-          item.country.toLowerCase().startsWith(search) ||
-          item.country.startsWith(search)
+      let searches = countries.filter((item) =>
+        item.country.toLowerCase().startsWith(search.toLowerCase())
       )
       setAllCountries(searches)
     } else {
